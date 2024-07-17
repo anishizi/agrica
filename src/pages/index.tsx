@@ -2,8 +2,10 @@ import React from 'react';
 
 const Home: React.FC = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-gray-900">Hello</h1>
+    <div className="container mx-auto p-4">
+      <p className="text-gray-700">
+        Welcome to our rural management and control site. Our platform is designed to streamline operations and improve efficiency for rural projects. Stay tuned for more updates and features.
+      </p>
     </div>
   );
 };
