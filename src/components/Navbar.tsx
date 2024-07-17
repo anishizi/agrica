@@ -4,6 +4,7 @@ import {
   UserIcon,
   Cog6ToothIcon,
   Bars3Icon,
+  XMarkIcon, // Import the X icon
   ChatBubbleOvalLeftEllipsisIcon,
   BellIcon,
   BookmarkIcon,
@@ -65,13 +66,17 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-4">
             <UserIcon className="icon" />
             <Cog6ToothIcon className="icon" />
-            <Bars3Icon className="icon cursor-pointer" onClick={toggleMenu} />
+            {menuOpen ? (
+              <XMarkIcon className="icon cursor-pointer" onClick={toggleMenu} />
+            ) : (
+              <Bars3Icon className="icon cursor-pointer" onClick={toggleMenu} />
+            )}
           </div>
         </div>
       </nav>
       {menuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start z-40">
-          <div className="menu-wrapper mt-2 w-full max-w-lg mx-4"> {/* Adjust for mobile */}
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start z-40 backdrop-blur-sm">
+          <div className="menu-wrapper mt-4 mx-2"> {/* Reduce left and right margin */}
             <div className="menu rounded-lg">
               {Array.from({ length: 9 }, (_, i) => {
                 const IconComponent = icons[i % icons.length];
