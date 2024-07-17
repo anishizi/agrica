@@ -44,9 +44,8 @@ main {
   padding: 2rem; /* Enlarged padding */
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem; /* Enlarged gap */
+  gap: 1rem; /* Reduced gap */
   border-radius: 1rem; /* More rounded corners */
-  position: relative;
   width: 100%; /* Full width */
   max-width: 700px; /* Limit max width */
   margin: 0 auto; /* Center horizontally */
@@ -65,10 +64,13 @@ main {
 }
 
 .menu-wrapper {
-  position: absolute;
-  top: 56px; /* This should be the same height as the navbar */
-  background-color: #ffffff; /* Same color as navbar */
-  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.5rem; /* Reduced padding */
+  margin-top: calc(0.5rem + 56px); /* Adjust top margin to account for navbar height */
+  width: 100%;
+  max-width: calc(100% - 1rem); /* Reduced side padding */
 }
 
 .menu-item {
