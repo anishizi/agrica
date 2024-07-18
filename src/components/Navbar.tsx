@@ -10,19 +10,20 @@ import {
   BookmarkIcon,
   CalendarIcon,
   ChartBarIcon,
-  ClipboardDocumentIcon
+  ClipboardDocumentIcon,
+  ArrowLeftOnRectangleIcon // Import the logout icon
 } from '@heroicons/react/24/outline';
 
 const icons = [
-  HomeIcon,
-  UserIcon,
-  Cog6ToothIcon,
-  ChatBubbleOvalLeftEllipsisIcon,
-  BellIcon,
-  BookmarkIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  ClipboardDocumentIcon,
+  { icon: HomeIcon, name: 'Home' },
+  { icon: UserIcon, name: 'User' },
+  { icon: Cog6ToothIcon, name: 'Settings' },
+  { icon: ChatBubbleOvalLeftEllipsisIcon, name: 'Messages' },
+  { icon: BellIcon, name: 'Notifications' },
+  { icon: BookmarkIcon, name: 'Bookmarks' },
+  { icon: CalendarIcon, name: 'Calendar' },
+  { icon: ChartBarIcon, name: 'Stats' },
+  { icon: ClipboardDocumentIcon, name: 'Tasks' },
 ];
 
 const Navbar: React.FC = () => {
@@ -78,17 +79,47 @@ const Navbar: React.FC = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-start z-40 backdrop-blur-sm">
           <div className="menu-wrapper mt-4 mx-2"> {/* Reduce left and right margin */}
             <div className="menu rounded-lg">
-              {Array.from({ length: 9 }, (_, i) => {
-                const IconComponent = icons[i % icons.length];
-                return (
+              <div className="menu-item greeting">
+                Bonjour: username
+              </div>
+              <hr className="separator" />
+              <div className="menu-grid">
+                {icons.slice(0, 3).map(({ icon: IconComponent, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
                       <IconComponent className="h-6 w-6 text-gray-700" />
                     </div>
-                    <span>Page {i + 1}</span>
+                    <span>{name}</span>
                   </div>
-                );
-              })}
+                ))}
+              </div>
+              <div className="menu-grid">
+                {icons.slice(3, 6).map(({ icon: IconComponent, name }, i) => (
+                  <div key={i} className="menu-item">
+                    <div className="icon-container">
+                      <IconComponent className="h-6 w-6 text-gray-700" />
+                    </div>
+                    <span>{name}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="menu-grid">
+                {icons.slice(6, 9).map(({ icon: IconComponent, name }, i) => (
+                  <div key={i} className="menu-item">
+                    <div className="icon-container">
+                      <IconComponent className="h-6 w-6 text-gray-700" />
+                    </div>
+                    <span>{name}</span>
+                  </div>
+                ))}
+              </div>
+              <hr className="separator" />
+              <div className="menu-item">
+                <div className="icon-container">
+                  <ArrowLeftOnRectangleIcon className="h-6 w-6 text-gray-700" />
+                </div>
+                <span>Logout</span>
+              </div>
             </div>
           </div>
         </div>
