@@ -11,7 +11,7 @@ body {
   @apply mx-auto p-4;
 }
 
-/* Navbar styles */
+/* Navbar styles 1*/
 nav {
   @apply fixed top-0 left-0 right-0 bg-white shadow-md z-50;
   height: 56px; /* Height of the navbar */
@@ -42,9 +42,6 @@ main {
   background-color: #ffffff; /* Light background */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   padding: 2rem; /* Enlarged padding */
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem; /* Reduced gap */
   border-radius: 1rem; /* More rounded corners */
   width: 100%; /* Full width */
   max-width: 700px; /* Limit max width */
@@ -71,6 +68,13 @@ main {
   margin-top: calc(0.5rem + 56px); /* Adjust top margin to account for navbar height */
   width: 100%;
   max-width: calc(100% - 1rem); /* Reduced side padding */
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; /* Reduced gap */
+  margin-bottom: 1rem; /* Space between grids */
 }
 
 .menu-item {
@@ -101,4 +105,17 @@ main {
 
 .icon:hover {
   color: #555555; /* Darker shade on hover */
+}
+
+.separator {
+  width: 100%;
+  border-top: 1px solid #eaeaea;
+  margin: 1rem 0;
+}
+
+.greeting {
+  font-size: 1rem; /* Tailwind's text-base */
+  color: #555555; /* Darker gray for text */
+  font-weight: 500; /* Tailwind's font-medium */
+  margin-bottom: 1rem;
 }
