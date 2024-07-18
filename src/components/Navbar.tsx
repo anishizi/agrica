@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faHome, // Home
-  faUsers, // Gestion Utilisateur
-  faDollarSign, // Comptabilité
-  faCreditCard, // Gestion Paie
-  faLeaf, // Plantations
-  faTint, // Irrigation (droplet icon)
-  faMicrochip, // Automat (IoT related)
-  faEnvelope, // Message
-  faBell, // Notification
-  faWater, // Niveau Bassin (level water icon)
-  faList, // Tâche à Faire
-  faVideo, // Surveillance
-  faBars, // Bars Icon
-  faTimes, // X Icon
-  faSignOutAlt // Déconnexion
+  faHome, 
+  faUsers, 
+  faDollarSign, 
+  faCreditCard, 
+  faLeaf, 
+  faTint, 
+  faMicrochip, 
+  faEnvelope, 
+  faBell, 
+  faWater, 
+  faList, 
+  faVideo, 
+  faBars, 
+  faTimes, 
+  faSignOutAlt 
 } from '@fortawesome/free-solid-svg-icons';
 
 const icons = [
@@ -92,7 +92,7 @@ const Navbar: React.FC = () => {
                 {icons.slice(0, 3).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
+                      <FontAwesomeIcon icon={icon} className="icon" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
                 {icons.slice(3, 6).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
+                      <FontAwesomeIcon icon={icon} className="icon" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
                 {icons.slice(6, 9).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
+                      <FontAwesomeIcon icon={icon} className="icon" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
@@ -122,7 +122,7 @@ const Navbar: React.FC = () => {
                 {icons.slice(9, 12).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
+                      <FontAwesomeIcon icon={icon} className="icon" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
               <hr className="separator" />
               <div className="menu-item">
                 <div className="icon-container">
-                  <FontAwesomeIcon icon={faSignOutAlt} className="h-6 w-6 text-gray-700" />
+                  <FontAwesomeIcon icon={faSignOutAlt} className="icon" />
                 </div>
                 <span>Déconnexion</span>
               </div>
