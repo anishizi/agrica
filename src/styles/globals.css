@@ -41,12 +41,14 @@ main {
 .menu {
   background-color: #ffffff; /* Light background */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  padding: 2rem; /* Enlarged padding */
+  padding: 1rem; /* Slightly reduced padding */
   border-radius: 1rem; /* More rounded corners */
   width: 100%; /* Full width */
-  max-width: 700px; /* Limit max width */
+  max-width: 600px; /* Slightly limit max width */
   margin: 0 auto; /* Center horizontally */
   animation: fadeIn 0.3s ease-in-out;
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  max-height: 80vh; /* Limit max height to 80% of the viewport height */
 }
 
 @keyframes fadeIn {
@@ -73,8 +75,8 @@ main {
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem; /* Reduced gap */
-  margin-bottom: 1rem; /* Space between grids */
+  gap: 0.75rem; /* Reduced gap */
+  margin-bottom: 0.75rem; /* Space between grids */
 }
 
 .menu-item {
@@ -85,26 +87,26 @@ main {
 
 .icon-container {
   background-color: #f1f1f1; /* Slightly darker gray for contrast */
-  padding: 1.5rem; /* Enlarged padding */
+  padding: 1rem; /* Reduced padding */
   border-radius: 9999px; /* Tailwind's rounded-full */
   transition: transform 0.3s;
 }
 
 .icon-container:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
 }
 
 .menu-item span {
-  font-size: 0.875rem; /* Tailwind's text-sm */
+  font-size: 0.75rem; /* Tailwind's text-xs */
   color: #555555; /* Darker gray for text */
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100px; /* Adjust as needed to ensure text fits */
+  max-width: 80px; /* Adjust as needed to ensure text fits */
 }
 
 .icon {
-  @apply h-6 w-6 text-gray-700;
+  @apply h-5 w-5 text-gray-700; /* Slightly reduced icon size */
 }
 
 .icon:hover {
@@ -114,14 +116,14 @@ main {
 .separator {
   width: 100%;
   border-top: 1px solid #eaeaea;
-  margin: 1rem 0;
+  margin: 0.75rem 0; /* Adjusted margin */
 }
 
 .greeting {
-  font-size: 1rem; /* Tailwind's text-base */
+  font-size: 0.875rem; /* Tailwind's text-sm */
   color: #555555; /* Darker gray for text */
   font-weight: 500; /* Tailwind's font-medium */
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* Adjusted margin */
 }
 
 /* Global styles for div containers */
