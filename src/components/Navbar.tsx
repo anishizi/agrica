@@ -15,7 +15,8 @@ import {
   faVideo, 
   faBars, 
   faTimes, 
-  faSignOutAlt 
+  faSignOutAlt,
+  faCloudSun // Importing the weather icon
 } from '@fortawesome/free-solid-svg-icons';
 
 const icons = [
@@ -30,7 +31,8 @@ const icons = [
   { icon: faBell, name: 'Notification' },
   { icon: faWater, name: 'Niveau Bassin' },
   { icon: faList, name: 'Tâche à Faire' },
-  { icon: faVideo, name: 'Surveillance' }
+  { icon: faVideo, name: 'Surveillance' },
+  { icon: faCloudSun, name: 'Météo' } // Adding the new Météo item
 ];
 
 const Navbar: React.FC = () => {
@@ -92,7 +94,7 @@ const Navbar: React.FC = () => {
                 {icons.slice(0, 3).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="icon" />
+                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
@@ -102,7 +104,7 @@ const Navbar: React.FC = () => {
                 {icons.slice(3, 6).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="icon" />
+                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
@@ -112,7 +114,7 @@ const Navbar: React.FC = () => {
                 {icons.slice(6, 9).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="icon" />
+                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
@@ -122,18 +124,26 @@ const Navbar: React.FC = () => {
                 {icons.slice(9, 12).map(({ icon, name }, i) => (
                   <div key={i} className="menu-item">
                     <div className="icon-container">
-                      <FontAwesomeIcon icon={icon} className="icon" />
+                      <FontAwesomeIcon icon={icon} className="h-6 w-6 text-gray-700" />
                     </div>
                     <span>{name.length > 10 ? `${name.slice(0, 10)}...` : name}</span>
                   </div>
                 ))}
               </div>
               <hr className="separator" />
-              <div className="menu-item">
-                <div className="icon-container">
-                  <FontAwesomeIcon icon={faSignOutAlt} className="icon" />
+              <div className="menu-grid">
+                <div className="menu-item">
+                  <div className="icon-container">
+                    <FontAwesomeIcon icon={faCloudSun} className="h-6 w-6 text-gray-700" />
+                  </div>
+                  <span>{'Météo'}</span>
                 </div>
-                <span>Déconnexion</span>
+                <div className="menu-item">
+                  <div className="icon-container">
+                    <FontAwesomeIcon icon={faSignOutAlt} className="h-6 w-6 text-gray-700" />
+                  </div>
+                  <span>Déconnexion</span>
+                </div>
               </div>
             </div>
           </div>
