@@ -1,0 +1,90 @@
+datasource db {
+  provider = "postgresql" // or "sqlite" depending on your configuration
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Credit {
+  id                Int       @id @default(autoincrement())
+  amount            Float
+  monthsToRepay     Int
+  startDate         DateTime
+  monthlyPayment    Float
+  participants      User[]    @relation("UserCredits")
+  payments          Payment[]  // Link to payments
+  createdAt         DateTime  @default(now())
+}
+
+model User {
+  id                Int                @id @default(autoincrement())
+  email             String             @unique
+  password          String
+  name              String?
+  createdAt         DateTime           @default(now())
+  connectionHistory ConnectionHistory[]  // Links to user's connection history
+  credits           Credit[]           @relation("UserCredits")
+  payments          Payment[]          // Link to payments made by user
+}
+
+model Payment {
+  id          Int      @id @default(autoincrement())
+  creditId    Int      // Foreign key to Credit
+  userId      Int      // Foreign key to User
+  month       Int      // Month of payment
+  year        Int      // Year of payment
+  confirmed   Boolean  @default(false) // Payment status
+  credit      Credit   @relation(fields: [creditId], references: [id]) // Relation to Credit
+  user        User     @relation(fields: [userId], references: [id]) // Relation to User
+
+  @@unique([userId, creditId, month, year]) // Ensure unique payment status for each user, credit, month, and year
+}
+
+
+
+
+model ConnectionHistory {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+  ipAddress  String
+  device     String
+  loggedInAt DateTime @default(now())
+}
+
+model Expense {
+  id          Int      @id @default(autoincrement())
+  description String
+  unitPrice   Float    // Price per unit in the format 0 000 000
+  quantity    Int
+  total       Float    // Total cost for this expense
+  projectId   Int
+  project     Project  @relation(fields: [projectId], references: [id])
+  createdAt   DateTime @default(now())
+}
+
+model Project {
+  id            Int       @id @default(autoincrement())
+  name          String
+  estimatedCost Float     // Estimated cost format 0 000 000
+  startDate     DateTime
+  endDate       DateTime
+  description   String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  tasks         Task[]    // Relation with tasks associated with the project
+  expenses      Expense[] // Relation with expenses associated with the project
+}
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  name        String
+  date        DateTime
+  description String
+  isCompleted Boolean  @default(false) // Indicates if the task is completed
+  projectId   Int
+  project     Project  @relation(fields: [projectId], references: [id])
+  createdAt   DateTime @default(now())
+}

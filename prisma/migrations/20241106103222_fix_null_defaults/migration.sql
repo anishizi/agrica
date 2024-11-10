@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE "Credit" ALTER COLUMN "amount" SET DEFAULT 0,
+ALTER COLUMN "dueDate" SET DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "CreditContributor" ALTER COLUMN "shareAmount" SET DEFAULT 0;
